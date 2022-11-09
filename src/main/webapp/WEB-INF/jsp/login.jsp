@@ -11,7 +11,6 @@
             padding:45px;
             text-align=center
         }
-
         .login-page {
             width:360px;
             padding:10% 0 0;
@@ -52,57 +51,43 @@
         {
         margin:15px 0 0;
         color:aliceblue;
-        font-size:12px;
+        font-size:20px;
 
         }
         .form .message a{
         color:#4CAF50;
         text-decoration:none;
         }
-        .form .register-form
-        {
-        display:none
-        }
 
 
     </style>
 <body>
-    <h2>${errorMsg}</h2>
-    <div class="login-page">
+<h2>${errorMsg}</h2>
+<div class="login-page">
+    <c:if test="${not empty errorMsg}">
+    <div class="alert alert-danger" role="alert">${errorMsg}</div>
+    </c:if>
+    <c:if test="${not empty successMsg}">
+        <div class="alert alert-success" role="alert">${successMsg}</div>
+        </c:if>
     <div class="form">
 
         <h2>
             Login to Car rental Application
         </h2>
-        <form action="" method="post" class="login-form">
+        <form method="post" class="login-form">
 
             <input type="text" name="username" id="">
             <input type="password" name="password" id="">
             <button class="button" type="submit">
                 login
             </button>
-            <p class="message">Not Registered?<a href="#">Register</a>
+            <p class="message">Not Registered?<a href="register">Register</a>
 
         </form>
-        <form action="" method="post" class="register-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email id"/>
-        <button> Create</button>
-        <p class="message">Already Registered? <a href="#">Login</a></p>
-        </form>
-        </div>
-        </div>
     </div>
-    <script src='https://code.jquery.com/jquery-3.6.1.min.js'>
-    </script>
+</div>
 
-    <script>
-    $('.message a').click(function()
-    {
-    $('form').animate({height:"toggle",opacity:"toggle"},"slow")
-    });
-    </script>
 </body>
 
 </html>
