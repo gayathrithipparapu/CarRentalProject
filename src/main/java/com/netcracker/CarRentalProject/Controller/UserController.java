@@ -1,7 +1,9 @@
 package com.netcracker.CarRentalProject.Controller;
+import com.netcracker.CarRentalProject.Controller.bean.Cars;
 import com.netcracker.CarRentalProject.Controller.bean.User;
 import com.netcracker.CarRentalProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.server.Ssl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -9,8 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Time;
 import java.time.LocalTime;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -27,7 +32,7 @@ public class UserController {
         if(user.getPassword().equals(password))
         {
             model.put("username",username);
-            return "welcome";
+            return "redirect:welcome";
         }
         model.put("errorMsg","please provide correct information");
         return "login";
@@ -55,12 +60,23 @@ public class UserController {
     {
         return "welcome";
     }
-    @RequestMapping(value="/welcome",method=RequestMethod.POST)
-    public String welcomes(@RequestParam LocalTime from,LocalTime to,String model){
-        return "welcome";
 
+    @RequestMapping(value="/welcome",method = RequestMethod.POST)
+    public ModelAndView cardetailpage(ModelAndView model1,@RequestParam String fromtime,@RequestParam String totime,@RequestParam String model)
+    {
+        LocalTime t1=LocalTime.parse(fromtime);
+        LocalTime t2=LocalTime.parse(totime);
+        List<Cars> user=userService.getCarDetails(fromtime,totime,model);
+        for(int i=0;i<user.size();i++)
+        {
+            System.out.println(user.get(i).getCost());
+        }
+        model1.addObject("welcome2",user);
+        model1.setViewName("welcome2");
+        return model1;
 
     }
+
 
 
 

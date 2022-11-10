@@ -72,11 +72,12 @@
     <form method="post" class="welcome">
 
         <label for="start">Enter Start Time:</label>
-        <input type="time" id="start" name="startime" >
+        <input type="text" id="start" name="fromtime" >
         <label for="end">Enter End Time:</label>
-        <input type="time" id="end" name="endtime" >
+        <input type="text" id="end" name="totime" >
         <label for="type">Enter Car Type:</label>
-        <input type="text" id="type" name="cartype" >
+        <input type="text" id="type" name="model" >
+        <button> submit </button>
     </form>
     </div>
 </div>

@@ -1,5 +1,6 @@
 package com.netcracker.CarRentalProject.dao.impl;
 
+import com.netcracker.CarRentalProject.Controller.bean.Cars;
 import com.netcracker.CarRentalProject.Controller.bean.User;
 import com.netcracker.CarRentalProject.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,13 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import javax.annotation.PostConstruct;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+
+import org.springframework.jdbc.core.JdbcTemplate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
@@ -41,11 +43,9 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
         });
     }
 
-
-
     @Override
     public int createNewUser(User user) {
-        String sql="insert into user (user_id,user_pswd) values('admin', hex(aes_encrypt('root', 'secret')))";
+        String sql="insert into user (user_id,user_pswd) values('admin', 'root')";
         return getJdbcTemplate().update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
@@ -57,9 +57,21 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
         });
 
     }
-
+    String s="yes";
     @Override
-    public List cardetails(LocalTime from, LocalTime To, String model) {
-        return null;
+    public List<Cars> getCarDetails(String from, String to, String model) {
+
+        String sql="select * from welcome";
+        List<Cars> customers = new ArrayList<>();
+        List<Map<String, Object>> list = getJdbcTemplate().queryForList(sql);
+        for (Map<String,Object> map : list) {
+            Cars obj = new Cars();
+            obj.setModel((String) map.get("model"));
+            obj.setCost((Integer) map.get("cost"));
+            customers.add(obj);
+        }
+        System.out.println(customers);
+        return customers;
+        };
     }
-}
+

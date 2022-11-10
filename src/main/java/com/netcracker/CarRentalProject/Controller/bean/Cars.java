@@ -1,39 +1,43 @@
 package com.netcracker.CarRentalProject.Controller.bean;
 
-import java.time.LocalTime;
+import java.sql.Time;
+
 
 public class Cars {
-    private LocalTime from;
-    private LocalTime to;
+    private String fromtime;
+    private String totime;
     private String model;
-
-    public LocalTime getFrom() {
-        return from;
+    private Integer cost;
+    public void setFrom(String from) {
+        this.fromtime = from;
+    }
+    public String getFrom() {
+        return fromtime;
+    }
+    public void setTo(String to) {
+        this.totime = to;
     }
 
-    public void setFrom(LocalTime from) {
-        this.from = from;
-    }
-
-    public LocalTime getTo() {
-        return to;
-    }
-
-    public void setTo(LocalTime to) {
-        this.to = to;
-    }
-
-    public String getModel() {
-        return model;
+    public String getTo() {
+        return totime;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
+    public String getModel() {
+        return model;
+    }
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+    public Integer getCost() {
+        return cost;
+    }
     @Override
     public String toString()
     {
-        return "Cars [from=" +from+ ",to=" +to+ ",model=" +model+"]";
+        return "Cars [from=" +fromtime+ ",to=" +totime+ ",model=" +model+"]";
     }
 
 }
