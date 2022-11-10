@@ -4,8 +4,10 @@ import com.netcracker.CarRentalProject.Controller.bean.User;
 import com.netcracker.CarRentalProject.dao.UserDao;
 import com.netcracker.CarRentalProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -25,10 +27,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Cars> getCarDetails(String from, String to, String model) {
+    public List<Cars> getCarDetails(LocalTime from,LocalTime to, String model) {
 
         return userDao.getCarDetails(from,to,model);
     }
+
+    @Override
+    public List<Cars> getCarId(Integer id) {
+        return userDao.getCarId(id);
+    }
+
+
 
 
 }

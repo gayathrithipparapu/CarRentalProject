@@ -10,7 +10,8 @@ import java.util.List;
 public interface UserDao {
     User getUserById(String username);
     int createNewUser(User user);
-    List <Cars> getCarDetails(String from, String to, String model);
+    List <Cars> getCarDetails(LocalTime from, LocalTime to, String model);
+    List<Cars> getCarId(Integer id);
 
 
 }

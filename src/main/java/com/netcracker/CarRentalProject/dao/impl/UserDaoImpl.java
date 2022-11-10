@@ -55,23 +55,28 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
                 return ps;
             }
         });
-
     }
     String s="yes";
     @Override
-    public List<Cars> getCarDetails(String from, String to, String model) {
+    public List<Cars> getCarDetails(LocalTime from,LocalTime to, String model) {
 
-        String sql="select * from welcome";
+        String sql="select * from welcome where fromtime<=? and totime>=?";
         List<Cars> customers = new ArrayList<>();
-        List<Map<String, Object>> list = getJdbcTemplate().queryForList(sql);
+        List<Map<String, Object>> list = getJdbcTemplate().queryForList(sql,from,to);
         for (Map<String,Object> map : list) {
             Cars obj = new Cars();
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
+            obj.setId((Integer) map.get("id"));
             customers.add(obj);
         }
-        System.out.println(customers);
+        System.out.println("list"+customers);
         return customers;
-        };
+        }
+        public List<Cars> getCarId(Integer id)
+        {
+            String sql="update status=1 where id=?";
+            return null;
+        }
     }
 

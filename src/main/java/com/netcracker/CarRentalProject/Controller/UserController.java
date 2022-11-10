@@ -7,11 +7,10 @@ import org.springframework.boot.web.server.Ssl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.sql.Time;
 import java.time.LocalTime;
@@ -66,19 +65,25 @@ public class UserController {
     {
         LocalTime t1=LocalTime.parse(fromtime);
         LocalTime t2=LocalTime.parse(totime);
-        List<Cars> user=userService.getCarDetails(fromtime,totime,model);
-        for(int i=0;i<user.size();i++)
-        {
-            System.out.println(user.get(i).getCost());
-        }
-        model1.addObject("welcome2",user);
+        List<Cars> user=userService.getCarDetails(t1,t2,model);
+        model1.addObject("welcome2", user);
         model1.setViewName("welcome2");
         return model1;
 
     }
+    @RequestMapping(value="/welcome2",method = RequestMethod.POST)
+    public ModelAndView carid(ModelAndView model2,@RequestParam Integer id)
+    {
+        List<Cars> user=userService.getCarId(id);
+        model2.addObject("book",user);
+        model2.setViewName("book");
+        return model2;
+    }
+    @RequestMapping(value="/book",method=RequestMethod.GET)
+    public String welcome2()
+    {
 
-
-
-
+        return "book";
+    }
 
 }
