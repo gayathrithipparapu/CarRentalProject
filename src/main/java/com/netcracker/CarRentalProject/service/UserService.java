@@ -11,6 +11,7 @@ public interface UserService {
     User getUserByUserId(String username);
     int createNewUser(User user);
     List<Cars> getCarDetails(LocalTime from, LocalTime to, String model);
-    List<Cars> getCarId(Integer id);
+    Cars getCarId(Integer id);
+    List<Cars> getSortList();
 
 }

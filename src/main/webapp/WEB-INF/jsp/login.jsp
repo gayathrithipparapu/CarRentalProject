@@ -58,8 +58,6 @@
         color:#4CAF50;
         text-decoration:none;
         }
-
-
     </style>
 <body>
 <h2>${errorMsg}</h2>
@@ -76,18 +74,14 @@
             Login to Car rental Application
         </h2>
         <form method="post" class="login-form">
-
             <input type="text" name="username" id="">
             <input type="password" name="password" id="">
             <button class="button" type="submit">
                 login
             </button>
             <p class="message">Not Registered?<a href="register">Register</a>
-
         </form>
     </div>
 </div>
-
 </body>
-
 </html>

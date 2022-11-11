@@ -61,29 +61,42 @@ public class UserController {
     }
 
     @RequestMapping(value="/welcome",method = RequestMethod.POST)
-    public ModelAndView cardetailpage(ModelAndView model1,@RequestParam String fromtime,@RequestParam String totime,@RequestParam String model)
+    public ModelAndView cardetailpage(@RequestParam String fromtime,@RequestParam String totime,@RequestParam String model)
     {
+        ModelAndView model1=new ModelAndView("redirect:/welcome2.jsp");
         LocalTime t1=LocalTime.parse(fromtime);
         LocalTime t2=LocalTime.parse(totime);
         List<Cars> user=userService.getCarDetails(t1,t2,model);
         model1.addObject("welcome2", user);
         model1.setViewName("welcome2");
         return model1;
-
     }
-    @RequestMapping(value="/welcome2",method = RequestMethod.POST)
-    public ModelAndView carid(ModelAndView model2,@RequestParam Integer id)
+    /*@RequestMapping(value="welcome2",method = RequestMethod.GET)
+    public String carid()
     {
-        List<Cars> user=userService.getCarId(id);
-        model2.addObject("book",user);
-        model2.setViewName("book");
+        return "welcome2";
+    }*/
+    @RequestMapping(value="/welcome2/{id}",method = RequestMethod.GET)
+    public ModelAndView carid(@PathVariable Integer id)
+    {
+        ModelAndView model2=new ModelAndView("/book");
+        Cars car=userService.getCarId(id);
+        model2.addObject("book",car);
         return model2;
     }
-    @RequestMapping(value="/book",method=RequestMethod.GET)
-    public String welcome2()
+    @RequestMapping(value="/sort",method=RequestMethod.GET)
+    public String s()
     {
-
-        return "book";
+        return "sort";
+    }
+    @RequestMapping(value="/welcome2",method = RequestMethod.GET)
+    public ModelAndView sort()
+    {
+        ModelAndView model3=new ModelAndView("/sort");
+        List <Cars> cars=userService.getSortList();
+        System.out.println(cars);
+        model3.addObject("sort",cars);
+        return model3;
     }
 
 }

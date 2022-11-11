@@ -33,8 +33,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Cars> getCarId(Integer id) {
+    public Cars getCarId(Integer id) {
         return userDao.getCarId(id);
+    }
+    @Override
+    public List<Cars> getSortList() {
+        return userDao.getSortList();
     }
 
 

@@ -47,10 +47,15 @@ public class Cars {
     public Integer getCost() {
         return cost;
     }
-    @Override
-    public String toString()
-    {
-        return "Cars [from=" +fromtime+ ",to=" +totime+ ",model=" +model+"]";
-    }
 
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "fromtime=" + fromtime +
+                ", totime=" + totime +
+                ", model='" + model +
+                ", cost=" + cost +
+                ", id=" + id +
+                '}';
+    }
 }

@@ -1,21 +1,17 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
+<head>
+    <title>login</title>
     <style>
-        form {
-            position:center;
+        .form {
+            position:relative;
             z-index:1;
             background:rgba(7,40,195,0.8);
-            max_width:100px;
-            margin-top: 100px;
-            margin-bottom: 100px;
-            margin-right: 300px;
-            margin-left: 300px;
-            padding:50px;
+            max_width:360px;
+            margin:0 auto 100px;
+            padding:45px;
             text-align=center
         }
-
-        register-page {
+        .Register-page {
             width:360px;
             padding:10% 0 0;
             margin:auto;
@@ -62,28 +58,23 @@
         color:#4CAF50;
         text-decoration:none;
         }
-
     </style>
-    <body>
-    <div class="register-page">
-        <c:if test="${not empty errorMsg}">
-        <div class="alert alert-danger" role="alert">${errorMsg}</div>
-        </c:if>
+<body>
+<h2>${errorMsg}</h2>
+<div class="Register-page">
         <div class="form">
-            <h2>
-                Register for car rental Application
-            </h2>
-            <form:form method="post" modelAttribute="user">
-                <form:input type="text" placeholder="username"/>
-                <form:input type="password" placeholder="password"/>
-                <form:button class="button" type="submit">
-                        Create
-                </form:button>
-                <p class="message">Already Registered? <a href="login">Login</a></p>j
-            </form:form>
-
-        </div>
-
+        <h2>
+            Register to Car rental Application
+        </h2>
+        <form method="post" class="login-form">
+            <input type="text" name="username" id="">
+            <input type="password" name="password" id="">
+            <button class="button" type="submit">
+                Register
+            </button>
+            <p class="message">Already Registered?<a href="login">login</a>
+        </form>
     </div>
-    </body>
+</div>
+</body>
 </html>
