@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>login</title>
@@ -63,13 +65,12 @@
 <h2>${errorMsg}</h2>
 <div class="login-page">
     <c:if test="${not empty errorMsg}">
-    <div class="alert alert-danger" role="alert">${errorMsg}</div>
+        <div class="alert alert-danger" role="alert">${errorMsg}</div>
     </c:if>
     <c:if test="${not empty successMsg}">
-        <div class="alert alert-success" role="alert">${successMsg}</div>
-        </c:if>
+         <div class="alert alert-success" role="alert">${successMsg}</div>
+    </c:if>
     <div class="form">
-
         <h2>
             Login to Car rental Application
         </h2>
