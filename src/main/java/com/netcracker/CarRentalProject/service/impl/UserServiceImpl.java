@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<Cars> getDetails() {
+        return userDao.getDetails();
+    }
+
+    @Override
     public List<Cars> getCarDetails(LocalTime from,LocalTime to, String model) {
 
         return userDao.getCarDetails(from,to,model);
@@ -37,11 +42,23 @@ public class UserServiceImpl implements UserService {
         return userDao.getCarId(id);
     }
     @Override
-    public List<Cars> getSortList() {
-        return userDao.getSortList();
+    public List<Cars> getAscSortList() {
+        return userDao.getAscSortList();
+    }
+    @Override
+    public List<Cars> getDscSortList() {
+        return userDao.getDscSortList();
     }
 
+    @Override
+    public List<Cars> getModelSortList() {
+        return userDao.getModelSortList();
+    }
 
+    @Override
+    public List<Cars> getRegDetails(Integer regnum) {
+        return userDao.getRegDetails(regnum);
+    }
 
 
 }

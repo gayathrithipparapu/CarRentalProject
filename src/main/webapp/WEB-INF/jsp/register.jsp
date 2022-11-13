@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>login</title>
@@ -66,14 +68,14 @@
         <h2>
             Register to Car rental Application
         </h2>
-        <form method="post" class="login-form">
-            <input type="text" name="username" id="">
-            <input type="password" name="password" id="">
-            <button class="button" type="submit">
+        <form:form method="post" modelAttribute="user" class="login-form"/>
+            <form:input type="text" name="username" path="username"/>
+            <form:input type="password" name="password" path="password"/>
+            <form:button class="button" type="submit">
                 Register
-            </button>
-            <p class="message">Already Registered?<a href="login">login</a>
-        </form>
+            </form:button>
+            <!--<p class="message">Already Registered?<a href="login">login</a></p>-->
+        </form:form>
     </div>
 </div>
 </body>

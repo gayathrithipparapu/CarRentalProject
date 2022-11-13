@@ -15,13 +15,17 @@
           <th>Car Name</th>
           <th>Cost</th>
           <th>Id</th>
+          <th>rnum</th>
         </tr>
         <tr>
           <td>${book.model}</td>
           <td>${book.cost}</td>
           <td>${book.id}</td>
+          <td>${book.regnum}</td>
+
         </tr>
       </table>
     </div>
+
 </body>
 </html>

@@ -1,5 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -7,21 +6,23 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
   </head>
   <body>
-    <h1>Sorted cars price details.</h1>
-    <br/><br/>
     <div>
       <table border="1">
         <tr>
           <th>Car Name</th>
           <th>Cost</th>
           <th>Id</th>
+          <th>rnum</th>
         </tr>
+        <c:forEach items="${registration}" var ="cars">
         <tr>
-          <td>${sort.model}</td>
-          <td>${sort.cost}</td>
-          <td>${sort.id}</td>
+          <td>${cars.model}</td>
+          <td>${cars.cost}</td>
+          <td>${cars.id}</td>
+          <td><a href="/registration/${cars.regnum}">Book Now</a></td>
         </tr>
+        </c:forEach>
       </table>
     </div>
-</body>
+  </body>
 </html>

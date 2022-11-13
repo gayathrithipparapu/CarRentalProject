@@ -9,6 +9,16 @@ public class Cars {
     private LocalTime totime;
     private String model;
     private Integer cost;
+    private Integer id;
+    private Integer regnum;
+
+    public Integer getRegnum() {
+        return regnum;
+    }
+
+    public void setRegnum(Integer regnum) {
+        this.regnum = regnum;
+    }
 
     public Integer getId() {
         return id;
@@ -18,7 +28,7 @@ public class Cars {
         this.id = id;
     }
 
-    private Integer id;
+
 
 
     public void setFrom(LocalTime fromtime) {
@@ -47,7 +57,6 @@ public class Cars {
     public Integer getCost() {
         return cost;
     }
-
     @Override
     public String toString() {
         return "Cars{" +

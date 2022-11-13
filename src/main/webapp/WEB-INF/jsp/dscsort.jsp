@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
   </head>
   <body>
-    <h1>Cars List</h1>
+    <h1>Sorted by descending order of price</h1>
     <br/><br/>
     <div>
       <table border="1">
@@ -16,16 +16,17 @@
           <th>Id</th>
           <th>Book</th>
         </tr>
-        <c:forEach items="${welcome2}" var ="Cars">
+        <c:forEach items="${cars}" var ="cars">
         <tr>
-          <td>${Cars.model}</td>
-          <td>${Cars.cost}</td>
-          <td>${Cars.id}</td>
-          <td><a href="/welcome2/${Cars.id}">Book Now</a></td>
+          <td>${cars.model}</td>
+          <td>${cars.cost}</td>
+          <td>${cars.id}</td>
+          <td><a href="/dscsort/${cars.id}">Book Now</a></td>
         </tr>
         </c:forEach>
       </table>
     </div>
-
+    <br/><br/>
+    <a href="/welcome">Enter your requirements</a>
   </body>
 </html>
