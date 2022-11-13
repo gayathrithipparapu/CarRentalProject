@@ -70,21 +70,22 @@ public class UserController {
         model2.setViewName("/book");
         return model2;
     }
-    /*@RequestMapping(value="/registration",method =RequestMethod.GET)
+    @RequestMapping(value="/registration",method =RequestMethod.GET)
     public String rgdetails()
     {
         return "registration";
     }
 
-    @RequestMapping(value="/cardetails/{regnum}",method = RequestMethod.GET)
-    public ModelAndView rdetails(@PathVariable Integer regnum)
+    @RequestMapping(value="/cardetails",method = RequestMethod.POST)
+    public ModelAndView rdetails(@RequestParam Integer regnum)
     {
         ModelAndView model2=new ModelAndView();
-        List<Cars> car=userService.getRegDetails(regnum);
-        model2.addObject("registration",car);
+        Cars car=userService.getRegDetails(regnum);
+        model2.addObject("cars",car);
         model2.setViewName("/registration");
+        System.out.println(car);
         return model2;
-    }*/
+    }
     @RequestMapping(value="/ascsort",method=RequestMethod.GET)
     public ModelAndView asortprice()
     {

@@ -34,6 +34,9 @@
     <br/><br/>
     <a href="/welcome">Enter your requirements</a>
     <br></br>
-    <a href="/registration">Already Booked?Enter Registration Number</a>
+    <form method="post">
+    <input type="number" name="regnum"></input>
+    <button type="submit"> Already Booked?Enter Registration Number </button>
+    </form>
   </body>
 </html>

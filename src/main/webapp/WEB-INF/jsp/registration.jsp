@@ -14,14 +14,12 @@
           <th>Id</th>
           <th>rnum</th>
         </tr>
-        <c:forEach items="${registration}" var ="cars">
         <tr>
           <td>${cars.model}</td>
           <td>${cars.cost}</td>
           <td>${cars.id}</td>
-          <td><a href="/registration/${cars.regnum}">Book Now</a></td>
+          <td>${cars.regnum}</td>
         </tr>
-        </c:forEach>
       </table>
     </div>
   </body>

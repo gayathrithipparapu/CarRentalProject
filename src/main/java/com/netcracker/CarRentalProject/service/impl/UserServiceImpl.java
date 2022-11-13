@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Cars> getRegDetails(Integer regnum) {
+    public Cars getRegDetails(Integer regnum) {
         return userDao.getRegDetails(regnum);
     }
 

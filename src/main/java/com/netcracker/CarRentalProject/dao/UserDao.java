@@ -16,7 +16,7 @@ public interface UserDao {
    List<Cars> getAscSortList();
    List<Cars> getDscSortList();
    List<Cars> getModelSortList();
-   List<Cars> getRegDetails(Integer regnum);
+   Cars getRegDetails(Integer regnum);
 
 
 
