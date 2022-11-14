@@ -14,6 +14,7 @@
           <th>Car Name</th>
           <th>Cost</th>
           <th>Id</th>
+          <th>Status</th>
           <th>Book</th>
         </tr>
         <c:forEach items="${cars}" var ="cars">
@@ -21,6 +22,7 @@
           <td>${cars.model}</td>
           <td>${cars.cost}</td>
           <td>${cars.id}</td>
+          <td>${cars.status}</td>
           <td><a href="/ascsort/${cars.id}">Book Now</a></td>
         </tr>
         </c:forEach>

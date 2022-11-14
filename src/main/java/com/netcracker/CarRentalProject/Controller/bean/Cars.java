@@ -11,14 +11,14 @@ public class Cars {
     private Integer cost;
     private Integer id;
     private Integer regnum;
-    private boolean status;
+    private Boolean stat;
 
-    public boolean isStatus() {
-        return status;
+    public Boolean getStatus() {
+        return stat;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStatus(Boolean stats) {
+        this.stat = stats;
     }
 
     public Integer getRegnum() {

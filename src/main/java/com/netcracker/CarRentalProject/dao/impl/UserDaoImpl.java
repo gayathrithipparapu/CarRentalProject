@@ -65,6 +65,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
             obj.setId((Integer) map.get("id"));
+            obj.setStatus((Boolean) map.get("cstatus"));
             cars.add(obj);
         }
         return cars;
@@ -83,6 +84,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
             obj.setId((Integer) map.get("id"));
+            obj.setStatus((Boolean) map.get("cstatus"));
             obj.setRegnum((Integer) map.get("regnum"));
             cars.add(obj);
         }
@@ -104,6 +106,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
                     car.setModel(rs.getString(3));
                     car.setCost(rs.getInt(4));
                     car.setId(id);
+                    car.setStatus(rs.getBoolean(6));
                     car.setRegnum(regnum);
                     System.out.println(car);
                     return car;
@@ -122,6 +125,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
             obj.setId((Integer) map.get("id"));
+            obj.setStatus((Boolean) map.get("cstatus"));
             obj.setRegnum((Integer) map.get("regnum"));
             cars.add(obj);
         }
@@ -139,6 +143,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
             obj.setId((Integer) map.get("id"));
+            obj.setStatus((Boolean) map.get("cstatus"));
             obj.setRegnum((Integer) map.get("regnum"));
             cars.add(obj);
         }
@@ -156,6 +161,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
             obj.setModel((String) map.get("model"));
             obj.setCost((Integer) map.get("cost"));
             obj.setId((Integer) map.get("id"));
+            obj.setStatus((Boolean) map.get("cstatus"));
             obj.setRegnum((Integer) map.get("regnum"));
             cars.add(obj);
         }
