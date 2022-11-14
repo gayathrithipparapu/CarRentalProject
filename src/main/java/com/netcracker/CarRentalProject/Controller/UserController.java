@@ -34,7 +34,7 @@ public class UserController {
         model.put("errorMsg","please enter correct details");
         return "login";
     }
-    /*@RequestMapping(value="/register",method= RequestMethod.GET)
+    @RequestMapping(value="/register",method= RequestMethod.GET)
     public String RegisterPage(Model model)
     {
         User user=new User();
@@ -51,7 +51,7 @@ public class UserController {
         }
         model.put("successMsg","User created Successfully");
         return "login";
-    }*/
+    }
     @RequestMapping(value="/cardetails",method = RequestMethod.GET)
     public ModelAndView cdetails()
     {

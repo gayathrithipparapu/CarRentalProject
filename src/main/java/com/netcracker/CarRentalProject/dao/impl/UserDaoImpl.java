@@ -43,7 +43,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 
     @Override
     public int createNewUser(User user) {
-        String sql="insert into user (user_id,user_pswd)values('abhi','chinna')";
+        String sql="insert into user (user_id,user_pswd)values(?,?)";
         return getJdbcTemplate().update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {

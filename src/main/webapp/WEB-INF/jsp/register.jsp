@@ -68,14 +68,14 @@
         <h2>
             Register to Car rental Application
         </h2>
-        <form:form method="post" modelAttribute="user" class="login-form"/>
-            <form:input type="text" name="username" path="username"/>
-            <form:input type="password" name="password" path="password"/>
-            <form:button class="button" type="submit">
+        <form method="post" modelAttribute="user" class="login-form"/>
+            <input type="text" name="username" path="username"/>
+            <input type="password" name="password" path="password"/>
+            <button class="button" type="submit">
                 Register
-            </form:button>
+            </button>
             <!--<p class="message">Already Registered?<a href="login">login</a></p>-->
-        </form:form>
+        </form>
     </div>
 </div>
 </body>
